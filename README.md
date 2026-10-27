@@ -2,7 +2,7 @@
 A hospital bed availability platform for finding hospitals , ICU beds  and venitlators.
 
 
-# 🏥 BedBridge
+# 🏥 BedConnect
 
 **Connecting Patients to Available Hospital Resources**
 

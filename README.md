@@ -28,3 +28,4 @@ Authentication, CRUD operations, database relationships, REST APIs, and role-bas
 - Kartik Sharma
 - Daksh Goyal
 - Yugraj Saini
+- Rohan Pratap Singh

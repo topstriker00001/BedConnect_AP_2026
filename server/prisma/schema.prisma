@@ -1,0 +1,56 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+enum Role { PATIENT HOSPITAL_ADMIN ADMIN }
+enum ResourceType { GENERAL_BED ICU_BED OXYGEN_BED VENTILATOR }
+enum RequestStatus { PENDING APPROVED REJECTED CANCELLED }
+
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(PATIENT)
+  hospital     Hospital? @relation("HospitalAdmin")
+  requests     BedRequest[]
+  createdAt    DateTime  @default(now())
+}
+
+model Hospital {
+  id          Int                    @id @default(autoincrement())
+  name        String
+  city        String
+  state       String
+  address     String
+  phone       String
+  adminId     Int?                   @unique
+  admin       User?                  @relation("HospitalAdmin", fields: [adminId], references: [id])
+  resources   ResourceAvailability[]
+  requests    BedRequest[]
+  createdAt   DateTime               @default(now())
+  updatedAt   DateTime               @updatedAt
+  @@index([city, state])
+}
+
+model ResourceAvailability {
+  id         Int          @id @default(autoincrement())
+  hospitalId Int
+  type       ResourceType
+  total      Int
+  occupied   Int
+  hospital   Hospital     @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  updatedAt  DateTime     @updatedAt
+  @@unique([hospitalId, type])
+}
+
+model BedRequest {
+  id         Int           @id @default(autoincrement())
+  patientId  Int
+  hospitalId Int
+  resource   ResourceType
+  status     RequestStatus @default(PENDING)
+  patient    User          @relation(fields: [patientId], references: [id])
+  hospital   Hospital      @relation(fields: [hospitalId], references: [id])
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+}

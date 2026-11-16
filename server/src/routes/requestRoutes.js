@@ -1,0 +1,1 @@
+// Bed request routes

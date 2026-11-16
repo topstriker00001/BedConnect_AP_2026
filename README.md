@@ -1,53 +1,30 @@
+# BedConnect
+A hospital bed availability platform for finding hospitals , ICU beds  and venitlators.
+
+
 # 🏥 BedConnect
 
-**Connecting patients to available hospital resources.**
+**Connecting Patients to Available Hospital Resources**
 
-BedConnect helps patients find hospitals with available general beds, ICU beds, oxygen beds, and ventilators. Hospital staff can update availability and approve or reject bed requests.
+BedBridge is a web platform that helps patients find hospitals with available beds, ICU beds, and ventilators.
 
-## Stack
+### Features
+- Hospital registration and login
+- Hospital bed availability dashboard
+- Search by location and bed type
+- Bed request and approval system
+- Hospital administrator dashboard
 
-- Frontend: React + Vite
-- Backend: Node.js + Express
+### Tech Stack
+- Frontend: React.js
+- Backend: Node.js and Express.js
 - Database: PostgreSQL
 - ORM: Prisma
-- Authentication: JWT + role-based access control
 
-## Project structure
+### Learning Objectives
+Authentication, CRUD operations, database relationships, REST APIs, and role-based access control.
 
-```text
-client/     React patient and hospital-admin portal
-server/     Express REST API and Prisma database layer
-docs/       Team workflow, API notes, and DB diagrams
-```
-
-## Quick start
-
-1. Create a PostgreSQL database named `bedconnect`.
-2. Copy `server/.env.example` to `server/.env` and set `DATABASE_URL` and `JWT_SECRET`.
-3. Start the API:
-
-```bash
-cd server
-npm install
-npm run prisma:migrate
-npm run prisma:seed
-npm run dev
-```
-
-4. Start the frontend in another terminal:
-
-```bash
-cd client
-npm install
-npm run dev
-```
-
-## Team work allocation
-
-See [docs/TASK_ASSIGNMENTS.md](docs/TASK_ASSIGNMENTS.md). Each member owns one independent module and raises a pull request to `main`.
-
-## Contributors
-
+### Contributors
 - Kartik Sharma
 - Daksh Goyal
 - Yugraj Saini

@@ -4,17 +4,9 @@ Each member owns one module. Work only on the assigned branch, then open a pull 
 
 | Member | Branch | Ownership | Definition of done |
 |---|---|---|---|
-| **Rohan Pratap Singh** | `feature/patient-portal` | React patient frontend: landing page, city/type filters, hospital cards, bed-request form and request-status page | Patient can search a city, see availability, create a request and view own request status. |
+| **Rohan Pratap Singh** | `feature/database-hospital-api` | Prisma schema, PostgreSQL migration/seed, hospital and resource-availability REST APIs | City/type search works; hospital staff can update resource counts; Prisma Studio shows seeded data. |
 | **Kartik Sharma** | `feature/auth-rbac` | Patient/hospital-admin registration & login, bcrypt password hashing, JWT auth, RBAC middleware | Protected endpoints reject unauthenticated users; patients and hospital admins see only permitted actions. |
-| **Daksh Goyal** | `feature/database-hospital-api` | Prisma schema, PostgreSQL migration/seed, hospital and resource-availability REST APIs | City/type search works; hospital staff can update resource counts; Prisma Studio shows seeded data. |
-
-## Rohan's frontend checklist
-
-1. Create pages: `Home`, `SearchHospitals`, `HospitalDetails`, `BedRequest`, and `MyRequests`.
-2. Build reusable components: `Navbar`, `SearchFilters`, `HospitalCard`, `ResourceBadge`, and `Loader`.
-3. Use `client/src/api/client.js` to call backend APIs; do not write hospital API code.
-4. Add responsive mobile styling and clear states for loading, no results, and API errors.
-5. Raise a PR from `feature/patient-portal` with screenshots and a short testing note.
+| **Daksh Goyal** | `feature/patient-portal` | React patient UI: home, city/type filters, hospital cards, request form and request-status page | Patient can search a city, see availability, create a request and view own request status. |
 | **Yugraj Saini** | `feature/hospital-admin-portal` | Hospital admin dashboard: availability update form, incoming requests, approve/reject actions | Hospital admin can update only their hospital and approve/reject only its requests. |
 
 ## Shared rules

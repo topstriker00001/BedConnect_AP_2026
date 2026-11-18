@@ -18,10 +18,10 @@ Build a hospital resource availability platform where patients can search hospit
 
 | Member | Branch | Main module | Main folders |
 |---|---|---|---|
-| Rohan Pratap Singh | `feature/patient-frontend` | Patient-facing React frontend | `client/src/pages`, `client/src/components`, `client/src/styles` |
+| Rohan Pratap Singh | `feature/patient-frontend` | Patient-facing React frontend | `frontend/src/pages`, `frontend/src/components`, `frontend/src/styles` |
 | Kartik Sharma | `feature/auth-rbac` | Login, registration, JWT and role security | `server/src/controllers/authController.js`, `server/src/middleware`, `server/src/routes/authRoutes.js` |
 | Daksh Goyal | `feature/database-hospital-api` | PostgreSQL, Prisma, hospitals and resource APIs | `server/prisma`, `server/src/controllers/hospitalController.js`, `resourceController.js` |
-| Yugraj Saini | `feature/hospital-admin-portal` | Hospital admin dashboard and request approval | `server/src/controllers/requestController.js`, `server/src/routes/requestRoutes.js`, admin pages in `client/src/pages` |
+| Yugraj Saini | `feature/hospital-admin-portal` | Hospital admin dashboard and request approval | `backend/src/controllers/requestController.js`, `backend/src/routes/requestRoutes.js`, admin pages in `frontend/src/pages` |
 
 ## Rohan Pratap Singh Patient Frontend
 
@@ -31,11 +31,11 @@ Build all patient-facing React screens. Do not create backend APIs or database m
 
 ### Files and folders to create
 
-- `client/src/pages/Home.jsx`
-- `client/src/pages/SearchHospitals.jsx`
-- `client/src/pages/HospitalDetails.jsx`
-- `client/src/pages/BedRequest.jsx`
-- `client/src/pages/MyRequests.jsx`
+- `frontend/src/pages/Home.jsx`
+- `frontend/src/pages/SearchHospitals.jsx`
+- `frontend/src/pages/HospitalDetails.jsx`
+- `frontend/src/pages/BedRequest.jsx`
+- `frontend/src/pages/MyRequests.jsx`
 - `client/src/pages/Login.jsx` and `Register.jsx`
 - `client/src/components/Navbar.jsx`
 - `client/src/components/SearchFilters.jsx`

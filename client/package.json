@@ -1,4 +1,0 @@
-{
-  "name": "bedconnect-client",
-  "scripts": { "dev": "vite", "build": "vite build" }
-}

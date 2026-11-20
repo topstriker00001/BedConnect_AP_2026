@@ -1,5 +1,5 @@
-import "dotenv/config";
-import app from "./app.js";
+require("dotenv").config();
+const app = require("./app");
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`BedConnect API running on http://localhost:${port}`));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

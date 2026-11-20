@@ -1,9 +1,18 @@
-import express from "express";
-import cors from "cors";
+const express = require("express");
+const cors = require("cors");
+
+const authRoutes = require("./routes/authRoutes");
+const hospitalRoutes = require("./routes/hospitalRoutes");
+const requestRoutes = require("./routes/requestRoutes");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.get("/api/health", (_req, res) => res.json({ status: "ok", message: "BedConnect API is running" }));
-app.get("/api/hospitals", (_req, res) => res.json({ demo: true, hospitals: [] }));
-export default app;
+
+app.get("/", (req, res) => res.json({ status: "BedConnect API running" }));
+
+app.use("/api/auth", authRoutes);
+app.use("/api/hospitals", hospitalRoutes);
+app.use("/api/requests", requestRoutes);
+
+module.exports = app;

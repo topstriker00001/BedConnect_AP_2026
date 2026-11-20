@@ -1,3 +1,64 @@
-// Daksh owns Prisma models and migrations.
-generator client { provider = "prisma-client-js" }
-datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PATIENT
+  HOSPITAL_ADMIN
+}
+
+enum BedType {
+  GENERAL
+  ICU
+  VENTILATOR
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model User {
+  id        Int          @id @default(autoincrement())
+  name      String
+  email     String       @unique
+  password  String
+  role      Role         @default(PATIENT)
+  hospital  Hospital?
+  requests  BedRequest[]
+  createdAt DateTime     @default(now())
+}
+
+model Hospital {
+  id          Int          @id @default(autoincrement())
+  name        String
+  city        String
+  address     String
+  phone       String
+  generalBeds Int          @default(0)
+  icuBeds     Int          @default(0)
+  ventilators Int          @default(0)
+  adminId     Int          @unique
+  admin       User         @relation(fields: [adminId], references: [id])
+  requests    BedRequest[]
+  updatedAt   DateTime     @updatedAt
+}
+
+model BedRequest {
+  id           Int           @id @default(autoincrement())
+  patientName  String
+  patientPhone String
+  bedType      BedType
+  status       RequestStatus @default(PENDING)
+  patientId    Int
+  patient      User          @relation(fields: [patientId], references: [id])
+  hospitalId   Int
+  hospital     Hospital      @relation(fields: [hospitalId], references: [id])
+  createdAt    DateTime      @default(now())
+}

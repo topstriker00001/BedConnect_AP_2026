@@ -1,0 +1,35 @@
+=== R14 run 1 ===
+Aggregate  (cost=517.67..517.68 rows=1 width=40) (actual time=0.601..0.601 rows=1.00 loops=1)
+  Buffers: shared hit=204
+  ->  Seq Scan on bed_requests  (cost=0.00..516.50 rows=52 width=9) (actual time=0.003..0.593 rows=52.00 loops=1)
+        Filter: (hospital_id = 1)
+        Rows Removed by Filter: 24948
+        Buffers: shared hit=204
+Planning:
+  Buffers: shared hit=63
+Planning Time: 0.151 ms
+Execution Time: 0.628 ms
+
+=== R14 run 2 ===
+Aggregate  (cost=517.67..517.68 rows=1 width=40) (actual time=0.566..0.566 rows=1.00 loops=1)
+  Buffers: shared hit=204
+  ->  Seq Scan on bed_requests  (cost=0.00..516.50 rows=52 width=9) (actual time=0.002..0.560 rows=52.00 loops=1)
+        Filter: (hospital_id = 1)
+        Rows Removed by Filter: 24948
+        Buffers: shared hit=204
+Planning:
+  Buffers: shared hit=63
+Planning Time: 0.135 ms
+Execution Time: 0.587 ms
+
+=== R14 run 3 ===
+Aggregate  (cost=517.67..517.68 rows=1 width=40) (actual time=0.568..0.568 rows=1.00 loops=1)
+  Buffers: shared hit=204
+  ->  Seq Scan on bed_requests  (cost=0.00..516.50 rows=52 width=9) (actual time=0.002..0.562 rows=52.00 loops=1)
+        Filter: (hospital_id = 1)
+        Rows Removed by Filter: 24948
+        Buffers: shared hit=204
+Planning:
+  Buffers: shared hit=63
+Planning Time: 0.136 ms
+Execution Time: 0.588 ms

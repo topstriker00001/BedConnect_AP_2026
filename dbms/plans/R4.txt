@@ -1,0 +1,35 @@
+=== R4 run 1 ===
+Sort  (cost=34.41..35.66 rows=500 width=63) (actual time=0.842..0.853 rows=500.00 loops=1)
+  Sort Key: hospital_name
+  Sort Method: quicksort  Memory: 66kB
+  Buffers: shared hit=10
+  ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=63) (actual time=0.003..0.034 rows=500.00 loops=1)
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=90
+Planning Time: 0.188 ms
+Execution Time: 0.880 ms
+
+=== R4 run 2 ===
+Sort  (cost=34.41..35.66 rows=500 width=63) (actual time=0.341..0.351 rows=500.00 loops=1)
+  Sort Key: hospital_name
+  Sort Method: quicksort  Memory: 66kB
+  Buffers: shared hit=10
+  ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=63) (actual time=0.003..0.030 rows=500.00 loops=1)
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=90
+Planning Time: 0.157 ms
+Execution Time: 0.378 ms
+
+=== R4 run 3 ===
+Sort  (cost=34.41..35.66 rows=500 width=63) (actual time=0.337..0.347 rows=500.00 loops=1)
+  Sort Key: hospital_name
+  Sort Method: quicksort  Memory: 66kB
+  Buffers: shared hit=10
+  ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=63) (actual time=0.004..0.032 rows=500.00 loops=1)
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=90
+Planning Time: 0.164 ms
+Execution Time: 0.374 ms

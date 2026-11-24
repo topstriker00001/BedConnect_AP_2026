@@ -1,0 +1,65 @@
+=== R9 run 1 ===
+Sort  (cost=81.84..82.92 rows=429 width=48) (actual time=0.187..0.194 rows=420.00 loops=1)
+  Sort Key: r.available_count DESC
+  Sort Method: quicksort  Memory: 53kB
+  Buffers: shared hit=25
+  ->  Hash Join  (cost=49.76..63.09 rows=429 width=48) (actual time=0.102..0.146 rows=420.00 loops=1)
+        Hash Cond: (h.hospital_id = r.hospital_id)
+        Buffers: shared hit=22
+        ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=44) (actual time=0.002..0.014 rows=500.00 loops=1)
+              Buffers: shared hit=7
+        ->  Hash  (cost=44.40..44.40 rows=429 width=12) (actual time=0.096..0.097 rows=420.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 27kB
+              Buffers: shared hit=15
+              ->  Seq Scan on resource_availability r  (cost=0.00..44.40 rows=429 width=12) (actual time=0.003..0.078 rows=420.00 loops=1)
+                    Filter: ((available_count > 0) AND ((resource_type)::text = 'VENTILATOR'::text))
+                    Rows Removed by Filter: 1540
+                    Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=170
+Planning Time: 0.318 ms
+Execution Time: 0.224 ms
+
+=== R9 run 2 ===
+Sort  (cost=81.84..82.92 rows=429 width=48) (actual time=0.184..0.191 rows=420.00 loops=1)
+  Sort Key: r.available_count DESC
+  Sort Method: quicksort  Memory: 53kB
+  Buffers: shared hit=25
+  ->  Hash Join  (cost=49.76..63.09 rows=429 width=48) (actual time=0.100..0.145 rows=420.00 loops=1)
+        Hash Cond: (h.hospital_id = r.hospital_id)
+        Buffers: shared hit=22
+        ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=44) (actual time=0.002..0.014 rows=500.00 loops=1)
+              Buffers: shared hit=7
+        ->  Hash  (cost=44.40..44.40 rows=429 width=12) (actual time=0.094..0.094 rows=420.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 27kB
+              Buffers: shared hit=15
+              ->  Seq Scan on resource_availability r  (cost=0.00..44.40 rows=429 width=12) (actual time=0.003..0.076 rows=420.00 loops=1)
+                    Filter: ((available_count > 0) AND ((resource_type)::text = 'VENTILATOR'::text))
+                    Rows Removed by Filter: 1540
+                    Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=170
+Planning Time: 0.296 ms
+Execution Time: 0.215 ms
+
+=== R9 run 3 ===
+Sort  (cost=81.84..82.92 rows=429 width=48) (actual time=0.184..0.192 rows=420.00 loops=1)
+  Sort Key: r.available_count DESC
+  Sort Method: quicksort  Memory: 53kB
+  Buffers: shared hit=25
+  ->  Hash Join  (cost=49.76..63.09 rows=429 width=48) (actual time=0.100..0.145 rows=420.00 loops=1)
+        Hash Cond: (h.hospital_id = r.hospital_id)
+        Buffers: shared hit=22
+        ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=44) (actual time=0.002..0.014 rows=500.00 loops=1)
+              Buffers: shared hit=7
+        ->  Hash  (cost=44.40..44.40 rows=429 width=12) (actual time=0.095..0.095 rows=420.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 27kB
+              Buffers: shared hit=15
+              ->  Seq Scan on resource_availability r  (cost=0.00..44.40 rows=429 width=12) (actual time=0.002..0.075 rows=420.00 loops=1)
+                    Filter: ((available_count > 0) AND ((resource_type)::text = 'VENTILATOR'::text))
+                    Rows Removed by Filter: 1540
+                    Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=170
+Planning Time: 0.291 ms
+Execution Time: 0.216 ms

@@ -1,0 +1,41 @@
+=== R5 run 1 ===
+Sort  (cost=14.51..14.52 rows=2 width=63) (actual time=0.142..0.143 rows=51.00 loops=1)
+  Sort Key: hospital_name
+  Sort Method: quicksort  Memory: 28kB
+  Buffers: shared hit=10
+  ->  Seq Scan on hospitals  (cost=0.00..14.50 rows=2 width=63) (actual time=0.005..0.099 rows=51.00 loops=1)
+        Filter: (lower((city)::text) = 'delhi'::text)
+        Rows Removed by Filter: 449
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=90
+Planning Time: 0.858 ms
+Execution Time: 0.155 ms
+
+=== R5 run 2 ===
+Sort  (cost=14.51..14.52 rows=2 width=63) (actual time=0.130..0.131 rows=51.00 loops=1)
+  Sort Key: hospital_name
+  Sort Method: quicksort  Memory: 28kB
+  Buffers: shared hit=10
+  ->  Seq Scan on hospitals  (cost=0.00..14.50 rows=2 width=63) (actual time=0.004..0.090 rows=51.00 loops=1)
+        Filter: (lower((city)::text) = 'delhi'::text)
+        Rows Removed by Filter: 449
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=90
+Planning Time: 0.172 ms
+Execution Time: 0.142 ms
+
+=== R5 run 3 ===
+Sort  (cost=14.51..14.52 rows=2 width=63) (actual time=0.124..0.125 rows=51.00 loops=1)
+  Sort Key: hospital_name
+  Sort Method: quicksort  Memory: 28kB
+  Buffers: shared hit=10
+  ->  Seq Scan on hospitals  (cost=0.00..14.50 rows=2 width=63) (actual time=0.003..0.088 rows=51.00 loops=1)
+        Filter: (lower((city)::text) = 'delhi'::text)
+        Rows Removed by Filter: 449
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=90
+Planning Time: 0.160 ms
+Execution Time: 0.135 ms

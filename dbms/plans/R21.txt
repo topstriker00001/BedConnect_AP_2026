@@ -1,0 +1,53 @@
+=== R21 run 1 ===
+Hash Join  (cost=18.25..58.38 rows=241 width=40) (actual time=0.064..0.147 rows=241.00 loops=1)
+  Hash Cond: (r.hospital_id = h.hospital_id)
+  Buffers: shared hit=22
+  ->  Seq Scan on resource_availability r  (cost=0.00..39.50 rows=241 width=15) (actual time=0.003..0.068 rows=241.00 loops=1)
+        Filter: (available_count = 0)
+        Rows Removed by Filter: 1719
+        Buffers: shared hit=15
+  ->  Hash  (cost=12.00..12.00 rows=500 width=33) (actual time=0.056..0.056 rows=500.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 42kB
+        Buffers: shared hit=7
+        ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=33) (actual time=0.002..0.023 rows=500.00 loops=1)
+              Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=240
+Planning Time: 0.392 ms
+Execution Time: 0.176 ms
+
+=== R21 run 2 ===
+Hash Join  (cost=18.25..58.38 rows=241 width=40) (actual time=0.058..0.131 rows=241.00 loops=1)
+  Hash Cond: (r.hospital_id = h.hospital_id)
+  Buffers: shared hit=22
+  ->  Seq Scan on resource_availability r  (cost=0.00..39.50 rows=241 width=15) (actual time=0.003..0.061 rows=241.00 loops=1)
+        Filter: (available_count = 0)
+        Rows Removed by Filter: 1719
+        Buffers: shared hit=15
+  ->  Hash  (cost=12.00..12.00 rows=500 width=33) (actual time=0.051..0.051 rows=500.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 42kB
+        Buffers: shared hit=7
+        ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=33) (actual time=0.002..0.022 rows=500.00 loops=1)
+              Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=240
+Planning Time: 0.344 ms
+Execution Time: 0.156 ms
+
+=== R21 run 3 ===
+Hash Join  (cost=18.25..58.38 rows=241 width=40) (actual time=0.057..0.130 rows=241.00 loops=1)
+  Hash Cond: (r.hospital_id = h.hospital_id)
+  Buffers: shared hit=22
+  ->  Seq Scan on resource_availability r  (cost=0.00..39.50 rows=241 width=15) (actual time=0.003..0.060 rows=241.00 loops=1)
+        Filter: (available_count = 0)
+        Rows Removed by Filter: 1719
+        Buffers: shared hit=15
+  ->  Hash  (cost=12.00..12.00 rows=500 width=33) (actual time=0.050..0.051 rows=500.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 42kB
+        Buffers: shared hit=7
+        ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=33) (actual time=0.002..0.023 rows=500.00 loops=1)
+              Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=240
+Planning Time: 0.346 ms
+Execution Time: 0.154 ms

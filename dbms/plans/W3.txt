@@ -1,0 +1,32 @@
+=== W3 run 1 ===
+Insert on resource_availability  (cost=0.00..0.02 rows=1 width=102) (actual time=0.149..0.150 rows=1.00 loops=1)
+  Buffers: shared hit=87
+  ->  Result  (cost=0.00..0.02 rows=1 width=102) (actual time=0.020..0.020 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=15
+Planning Time: 0.043 ms
+Trigger for constraint resource_availability_hospital_id_fkey: time=0.182 calls=1
+Execution Time: 0.342 ms
+
+=== W3 run 2 ===
+Insert on resource_availability  (cost=0.00..0.02 rows=1 width=102) (actual time=0.124..0.124 rows=1.00 loops=1)
+  Buffers: shared hit=87
+  ->  Result  (cost=0.00..0.02 rows=1 width=102) (actual time=0.020..0.020 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=15
+Planning Time: 0.043 ms
+Trigger for constraint resource_availability_hospital_id_fkey: time=0.188 calls=1
+Execution Time: 0.323 ms
+
+=== W3 run 3 ===
+Insert on resource_availability  (cost=0.00..0.02 rows=1 width=102) (actual time=0.145..0.146 rows=1.00 loops=1)
+  Buffers: shared hit=87
+  ->  Result  (cost=0.00..0.02 rows=1 width=102) (actual time=0.021..0.021 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=15
+Planning Time: 0.043 ms
+Trigger for constraint resource_availability_hospital_id_fkey: time=0.205 calls=1
+Execution Time: 0.362 ms

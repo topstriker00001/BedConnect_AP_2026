@@ -1,0 +1,38 @@
+=== W8 run 1 ===
+Update on bed_requests  (cost=0.29..8.31 rows=1 width=64) (actual time=0.074..0.076 rows=1.00 loops=1)
+  Buffers: shared hit=29
+  ->  Index Scan using bed_requests_pkey on bed_requests  (cost=0.29..8.31 rows=1 width=64) (actual time=0.007..0.009 rows=1.00 loops=1)
+        Index Cond: (request_id = 1)
+        Filter: ((status)::text = 'PENDING'::text)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=72
+Planning Time: 0.153 ms
+Execution Time: 0.113 ms
+
+=== W8 run 2 ===
+Update on bed_requests  (cost=0.29..8.31 rows=1 width=64) (actual time=0.072..0.073 rows=1.00 loops=1)
+  Buffers: shared hit=29
+  ->  Index Scan using bed_requests_pkey on bed_requests  (cost=0.29..8.31 rows=1 width=64) (actual time=0.008..0.009 rows=1.00 loops=1)
+        Index Cond: (request_id = 1)
+        Filter: ((status)::text = 'PENDING'::text)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=72
+Planning Time: 0.151 ms
+Execution Time: 0.111 ms
+
+=== W8 run 3 ===
+Update on bed_requests  (cost=0.29..8.31 rows=1 width=64) (actual time=0.075..0.076 rows=1.00 loops=1)
+  Buffers: shared hit=29
+  ->  Index Scan using bed_requests_pkey on bed_requests  (cost=0.29..8.31 rows=1 width=64) (actual time=0.007..0.009 rows=1.00 loops=1)
+        Index Cond: (request_id = 1)
+        Filter: ((status)::text = 'PENDING'::text)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=72
+Planning Time: 0.145 ms
+Execution Time: 0.113 ms

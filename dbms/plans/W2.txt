@@ -1,0 +1,32 @@
+=== W2 run 1 ===
+Insert on hospitals  (cost=0.00..0.01 rows=1 width=634) (actual time=0.119..0.119 rows=1.00 loops=1)
+  Buffers: shared hit=53
+  ->  Result  (cost=0.00..0.01 rows=1 width=634) (actual time=0.015..0.015 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.039 ms
+Trigger for constraint hospitals_admin_id_fkey: time=0.254 calls=1
+Execution Time: 0.384 ms
+
+=== W2 run 2 ===
+Insert on hospitals  (cost=0.00..0.01 rows=1 width=634) (actual time=0.090..0.091 rows=1.00 loops=1)
+  Buffers: shared hit=52
+  ->  Result  (cost=0.00..0.01 rows=1 width=634) (actual time=0.015..0.015 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.041 ms
+Trigger for constraint hospitals_admin_id_fkey: time=0.256 calls=1
+Execution Time: 0.358 ms
+
+=== W2 run 3 ===
+Insert on hospitals  (cost=0.00..0.01 rows=1 width=634) (actual time=0.090..0.090 rows=1.00 loops=1)
+  Buffers: shared hit=52
+  ->  Result  (cost=0.00..0.01 rows=1 width=634) (actual time=0.016..0.016 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.042 ms
+Trigger for constraint hospitals_admin_id_fkey: time=0.232 calls=1
+Execution Time: 0.334 ms

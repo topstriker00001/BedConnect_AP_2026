@@ -1,0 +1,98 @@
+=== W6 run 1 ===
+Update on bed_requests br  (cost=16.91..24.95 rows=1 width=92) (actual time=0.125..0.126 rows=1.00 loops=1)
+  Buffers: shared hit=54
+  CTE reserved
+    ->  Update on resource_availability r  (cost=0.57..16.62 rows=1 width=28) (actual time=0.086..0.086 rows=1.00 loops=1)
+          Buffers: shared hit=36
+          ->  Nested Loop  (cost=0.57..16.62 rows=1 width=28) (actual time=0.008..0.009 rows=1.00 loops=1)
+                Buffers: shared hit=6
+                ->  Index Scan using bed_requests_pkey on bed_requests br_1  (cost=0.29..8.31 rows=1 width=14) (actual time=0.003..0.003 rows=1.00 loops=1)
+                      Index Cond: (request_id = 1)
+                      Filter: ((status)::text = 'PENDING'::text)
+                      Index Searches: 1
+                      Buffers: shared hit=3
+                ->  Index Scan using resource_availability_pkey on resource_availability r  (cost=0.28..8.30 rows=1 width=14) (actual time=0.001..0.001 rows=1.00 loops=1)
+                      Index Cond: (resource_id = br_1.resource_id)
+                      Filter: (available_count > 0)
+                      Index Searches: 1
+                      Buffers: shared hit=3
+  ->  Nested Loop  (cost=0.29..8.33 rows=1 width=92) (actual time=0.093..0.094 rows=1.00 loops=1)
+        Buffers: shared hit=39
+        ->  CTE Scan on reserved  (cost=0.00..0.02 rows=1 width=32) (actual time=0.091..0.092 rows=1.00 loops=1)
+              Storage: Memory  Maximum Storage: 17kB
+              Buffers: shared hit=36
+        ->  Index Scan using bed_requests_pkey on bed_requests br  (cost=0.29..8.31 rows=1 width=10) (actual time=0.001..0.001 rows=1.00 loops=1)
+              Index Cond: (request_id = reserved.request_id)
+              Filter: ((status)::text = 'PENDING'::text)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=228
+Planning Time: 0.392 ms
+Execution Time: 0.179 ms
+
+=== W6 run 2 ===
+Update on bed_requests br  (cost=16.91..24.95 rows=1 width=92) (actual time=0.127..0.128 rows=1.00 loops=1)
+  Buffers: shared hit=56
+  CTE reserved
+    ->  Update on resource_availability r  (cost=0.57..16.62 rows=1 width=28) (actual time=0.088..0.088 rows=1.00 loops=1)
+          Buffers: shared hit=38
+          ->  Nested Loop  (cost=0.57..16.62 rows=1 width=28) (actual time=0.008..0.009 rows=1.00 loops=1)
+                Buffers: shared hit=8
+                ->  Index Scan using bed_requests_pkey on bed_requests br_1  (cost=0.29..8.31 rows=1 width=14) (actual time=0.002..0.003 rows=1.00 loops=1)
+                      Index Cond: (request_id = 1)
+                      Filter: ((status)::text = 'PENDING'::text)
+                      Index Searches: 1
+                      Buffers: shared hit=5
+                ->  Index Scan using resource_availability_pkey on resource_availability r  (cost=0.28..8.30 rows=1 width=14) (actual time=0.001..0.001 rows=1.00 loops=1)
+                      Index Cond: (resource_id = br_1.resource_id)
+                      Filter: (available_count > 0)
+                      Index Searches: 1
+                      Buffers: shared hit=3
+  ->  Nested Loop  (cost=0.29..8.33 rows=1 width=92) (actual time=0.095..0.095 rows=1.00 loops=1)
+        Buffers: shared hit=41
+        ->  CTE Scan on reserved  (cost=0.00..0.02 rows=1 width=32) (actual time=0.093..0.094 rows=1.00 loops=1)
+              Storage: Memory  Maximum Storage: 17kB
+              Buffers: shared hit=38
+        ->  Index Scan using bed_requests_pkey on bed_requests br  (cost=0.29..8.31 rows=1 width=10) (actual time=0.001..0.001 rows=1.00 loops=1)
+              Index Cond: (request_id = reserved.request_id)
+              Filter: ((status)::text = 'PENDING'::text)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=229
+Planning Time: 0.417 ms
+Execution Time: 0.186 ms
+
+=== W6 run 3 ===
+Update on bed_requests br  (cost=16.91..24.95 rows=1 width=92) (actual time=0.128..0.129 rows=1.00 loops=1)
+  Buffers: shared hit=56
+  CTE reserved
+    ->  Update on resource_availability r  (cost=0.57..16.62 rows=1 width=28) (actual time=0.086..0.087 rows=1.00 loops=1)
+          Buffers: shared hit=38
+          ->  Nested Loop  (cost=0.57..16.62 rows=1 width=28) (actual time=0.009..0.010 rows=1.00 loops=1)
+                Buffers: shared hit=8
+                ->  Index Scan using bed_requests_pkey on bed_requests br_1  (cost=0.29..8.31 rows=1 width=14) (actual time=0.003..0.003 rows=1.00 loops=1)
+                      Index Cond: (request_id = 1)
+                      Filter: ((status)::text = 'PENDING'::text)
+                      Index Searches: 1
+                      Buffers: shared hit=5
+                ->  Index Scan using resource_availability_pkey on resource_availability r  (cost=0.28..8.30 rows=1 width=14) (actual time=0.001..0.001 rows=1.00 loops=1)
+                      Index Cond: (resource_id = br_1.resource_id)
+                      Filter: (available_count > 0)
+                      Index Searches: 1
+                      Buffers: shared hit=3
+  ->  Nested Loop  (cost=0.29..8.33 rows=1 width=92) (actual time=0.093..0.094 rows=1.00 loops=1)
+        Buffers: shared hit=41
+        ->  CTE Scan on reserved  (cost=0.00..0.02 rows=1 width=32) (actual time=0.092..0.092 rows=1.00 loops=1)
+              Storage: Memory  Maximum Storage: 17kB
+              Buffers: shared hit=38
+        ->  Index Scan using bed_requests_pkey on bed_requests br  (cost=0.29..8.31 rows=1 width=10) (actual time=0.001..0.001 rows=1.00 loops=1)
+              Index Cond: (request_id = reserved.request_id)
+              Filter: ((status)::text = 'PENDING'::text)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=229
+Planning Time: 0.378 ms
+Execution Time: 0.186 ms

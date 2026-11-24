@@ -1,0 +1,47 @@
+=== R17 run 1 ===
+Sort  (cost=14.77..14.79 rows=10 width=15) (actual time=0.064..0.065 rows=10.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=10
+  ->  HashAggregate  (cost=14.50..14.60 rows=10 width=15) (actual time=0.055..0.056 rows=10.00 loops=1)
+        Group Key: city
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=7
+        ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=7) (actual time=0.004..0.017 rows=500.00 loops=1)
+              Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=94
+Planning Time: 0.162 ms
+Execution Time: 0.097 ms
+
+=== R17 run 2 ===
+Sort  (cost=14.77..14.79 rows=10 width=15) (actual time=0.061..0.062 rows=10.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=10
+  ->  HashAggregate  (cost=14.50..14.60 rows=10 width=15) (actual time=0.053..0.054 rows=10.00 loops=1)
+        Group Key: city
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=7
+        ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=7) (actual time=0.003..0.016 rows=500.00 loops=1)
+              Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=94
+Planning Time: 0.152 ms
+Execution Time: 0.092 ms
+
+=== R17 run 3 ===
+Sort  (cost=14.77..14.79 rows=10 width=15) (actual time=0.062..0.063 rows=10.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=10
+  ->  HashAggregate  (cost=14.50..14.60 rows=10 width=15) (actual time=0.054..0.055 rows=10.00 loops=1)
+        Group Key: city
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=7
+        ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=7) (actual time=0.003..0.017 rows=500.00 loops=1)
+              Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=94
+Planning Time: 0.166 ms
+Execution Time: 0.095 ms

@@ -1,0 +1,65 @@
+=== R8 run 1 ===
+Sort  (cost=31.15..31.15 rows=2 width=82) (actual time=0.140..0.141 rows=49.00 loops=1)
+  Sort Key: r.available_count DESC
+  Sort Method: quicksort  Memory: 29kB
+  Buffers: shared hit=162
+  ->  Nested Loop  (cost=0.28..31.14 rows=2 width=82) (actual time=0.009..0.127 rows=49.00 loops=1)
+        Buffers: shared hit=159
+        ->  Seq Scan on hospitals h  (cost=0.00..14.50 rows=2 width=63) (actual time=0.004..0.080 rows=51.00 loops=1)
+              Filter: (lower((city)::text) = 'delhi'::text)
+              Rows Removed by Filter: 449
+              Buffers: shared hit=7
+        ->  Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability r  (cost=0.28..8.30 rows=1 width=23) (actual time=0.001..0.001 rows=0.96 loops=51)
+              Index Cond: ((hospital_id = h.hospital_id) AND ((resource_type)::text = 'ICU'::text))
+              Filter: (available_count > 0)
+              Rows Removed by Filter: 0
+              Index Searches: 51
+              Buffers: shared hit=152
+Planning:
+  Buffers: shared hit=176
+Planning Time: 0.376 ms
+Execution Time: 0.162 ms
+
+=== R8 run 2 ===
+Sort  (cost=31.15..31.15 rows=2 width=82) (actual time=0.133..0.134 rows=49.00 loops=1)
+  Sort Key: r.available_count DESC
+  Sort Method: quicksort  Memory: 29kB
+  Buffers: shared hit=162
+  ->  Nested Loop  (cost=0.28..31.14 rows=2 width=82) (actual time=0.007..0.121 rows=49.00 loops=1)
+        Buffers: shared hit=159
+        ->  Seq Scan on hospitals h  (cost=0.00..14.50 rows=2 width=63) (actual time=0.003..0.076 rows=51.00 loops=1)
+              Filter: (lower((city)::text) = 'delhi'::text)
+              Rows Removed by Filter: 449
+              Buffers: shared hit=7
+        ->  Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability r  (cost=0.28..8.30 rows=1 width=23) (actual time=0.001..0.001 rows=0.96 loops=51)
+              Index Cond: ((hospital_id = h.hospital_id) AND ((resource_type)::text = 'ICU'::text))
+              Filter: (available_count > 0)
+              Rows Removed by Filter: 0
+              Index Searches: 51
+              Buffers: shared hit=152
+Planning:
+  Buffers: shared hit=176
+Planning Time: 0.298 ms
+Execution Time: 0.147 ms
+
+=== R8 run 3 ===
+Sort  (cost=31.15..31.15 rows=2 width=82) (actual time=0.135..0.136 rows=49.00 loops=1)
+  Sort Key: r.available_count DESC
+  Sort Method: quicksort  Memory: 29kB
+  Buffers: shared hit=162
+  ->  Nested Loop  (cost=0.28..31.14 rows=2 width=82) (actual time=0.007..0.123 rows=49.00 loops=1)
+        Buffers: shared hit=159
+        ->  Seq Scan on hospitals h  (cost=0.00..14.50 rows=2 width=63) (actual time=0.003..0.078 rows=51.00 loops=1)
+              Filter: (lower((city)::text) = 'delhi'::text)
+              Rows Removed by Filter: 449
+              Buffers: shared hit=7
+        ->  Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability r  (cost=0.28..8.30 rows=1 width=23) (actual time=0.001..0.001 rows=0.96 loops=51)
+              Index Cond: ((hospital_id = h.hospital_id) AND ((resource_type)::text = 'ICU'::text))
+              Filter: (available_count > 0)
+              Rows Removed by Filter: 0
+              Index Searches: 51
+              Buffers: shared hit=152
+Planning:
+  Buffers: shared hit=176
+Planning Time: 0.310 ms
+Execution Time: 0.150 ms

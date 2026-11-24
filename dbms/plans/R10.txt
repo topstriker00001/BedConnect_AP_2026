@@ -1,0 +1,47 @@
+=== R10 run 1 ===
+Sort  (cost=49.38..49.39 rows=4 width=23) (actual time=0.193..0.194 rows=4.00 loops=1)
+  Sort Key: resource_type
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=18
+  ->  HashAggregate  (cost=49.30..49.34 rows=4 width=23) (actual time=0.180..0.180 rows=4.00 loops=1)
+        Group Key: resource_type
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=15
+        ->  Seq Scan on resource_availability  (cost=0.00..34.60 rows=1960 width=15) (actual time=0.003..0.047 rows=1960.00 loops=1)
+              Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=112
+Planning Time: 0.169 ms
+Execution Time: 0.224 ms
+
+=== R10 run 2 ===
+Sort  (cost=49.38..49.39 rows=4 width=23) (actual time=0.190..0.190 rows=4.00 loops=1)
+  Sort Key: resource_type
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=18
+  ->  HashAggregate  (cost=49.30..49.34 rows=4 width=23) (actual time=0.178..0.178 rows=4.00 loops=1)
+        Group Key: resource_type
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=15
+        ->  Seq Scan on resource_availability  (cost=0.00..34.60 rows=1960 width=15) (actual time=0.003..0.048 rows=1960.00 loops=1)
+              Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=112
+Planning Time: 0.151 ms
+Execution Time: 0.217 ms
+
+=== R10 run 3 ===
+Sort  (cost=49.38..49.39 rows=4 width=23) (actual time=0.214..0.214 rows=4.00 loops=1)
+  Sort Key: resource_type
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=18
+  ->  HashAggregate  (cost=49.30..49.34 rows=4 width=23) (actual time=0.197..0.198 rows=4.00 loops=1)
+        Group Key: resource_type
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=15
+        ->  Seq Scan on resource_availability  (cost=0.00..34.60 rows=1960 width=15) (actual time=0.003..0.051 rows=1960.00 loops=1)
+              Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=112
+Planning Time: 0.181 ms
+Execution Time: 0.248 ms

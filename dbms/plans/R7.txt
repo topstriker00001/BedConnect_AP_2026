@@ -1,0 +1,29 @@
+=== R7 run 1 ===
+Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability  (cost=0.28..13.60 rows=4 width=27) (actual time=0.012..0.013 rows=4.00 loops=1)
+  Index Cond: (hospital_id = 1)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=119
+Planning Time: 0.207 ms
+Execution Time: 0.029 ms
+
+=== R7 run 2 ===
+Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability  (cost=0.28..13.60 rows=4 width=27) (actual time=0.004..0.005 rows=4.00 loops=1)
+  Index Cond: (hospital_id = 1)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=119
+Planning Time: 0.183 ms
+Execution Time: 0.019 ms
+
+=== R7 run 3 ===
+Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability  (cost=0.28..13.60 rows=4 width=27) (actual time=0.004..0.004 rows=4.00 loops=1)
+  Index Cond: (hospital_id = 1)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=119
+Planning Time: 0.176 ms
+Execution Time: 0.019 ms

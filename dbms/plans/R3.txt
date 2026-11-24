@@ -1,0 +1,41 @@
+=== R3 run 1 ===
+Sort  (cost=402.42..413.66 rows=4498 width=48) (actual time=0.799..0.894 rows=4498.00 loops=1)
+  Sort Key: created_at DESC
+  Sort Method: quicksort  Memory: 501kB
+  Buffers: shared hit=70
+  ->  Seq Scan on users  (cost=0.00..129.50 rows=4498 width=48) (actual time=0.003..0.381 rows=4498.00 loops=1)
+        Filter: ((role)::text = 'PATIENT'::text)
+        Rows Removed by Filter: 502
+        Buffers: shared hit=67
+Planning:
+  Buffers: shared hit=119
+Planning Time: 0.227 ms
+Execution Time: 1.010 ms
+
+=== R3 run 2 ===
+Sort  (cost=402.42..413.66 rows=4498 width=48) (actual time=0.782..0.880 rows=4498.00 loops=1)
+  Sort Key: created_at DESC
+  Sort Method: quicksort  Memory: 501kB
+  Buffers: shared hit=70
+  ->  Seq Scan on users  (cost=0.00..129.50 rows=4498 width=48) (actual time=0.003..0.371 rows=4498.00 loops=1)
+        Filter: ((role)::text = 'PATIENT'::text)
+        Rows Removed by Filter: 502
+        Buffers: shared hit=67
+Planning:
+  Buffers: shared hit=119
+Planning Time: 0.227 ms
+Execution Time: 0.994 ms
+
+=== R3 run 3 ===
+Sort  (cost=402.42..413.66 rows=4498 width=48) (actual time=0.738..0.832 rows=4498.00 loops=1)
+  Sort Key: created_at DESC
+  Sort Method: quicksort  Memory: 501kB
+  Buffers: shared hit=70
+  ->  Seq Scan on users  (cost=0.00..129.50 rows=4498 width=48) (actual time=0.003..0.359 rows=4498.00 loops=1)
+        Filter: ((role)::text = 'PATIENT'::text)
+        Rows Removed by Filter: 502
+        Buffers: shared hit=67
+Planning:
+  Buffers: shared hit=119
+Planning Time: 0.205 ms
+Execution Time: 0.941 ms

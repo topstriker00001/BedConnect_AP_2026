@@ -1,0 +1,113 @@
+=== R15 run 1 ===
+Limit  (cost=765.57..765.62 rows=20 width=63) (actual time=1.156..1.158 rows=20.00 loops=1)
+  Buffers: shared hit=292
+  ->  Sort  (cost=765.57..765.70 rows=52 width=63) (actual time=1.156..1.157 rows=20.00 loops=1)
+        Sort Key: br.request_date DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=292
+        ->  Hash Join  (cost=238.87..764.18 rows=52 width=63) (actual time=0.569..1.144 rows=52.00 loops=1)
+              Hash Cond: (br.resource_id = r.resource_id)
+              Buffers: shared hit=289
+              ->  Nested Loop  (cost=179.77..704.95 rows=52 width=60) (actual time=0.409..0.980 rows=52.00 loops=1)
+                    Buffers: shared hit=274
+                    ->  Index Scan using hospitals_pkey on hospitals h  (cost=0.27..8.29 rows=1 width=26) (actual time=0.003..0.004 rows=1.00 loops=1)
+                          Index Cond: (hospital_id = 1)
+                          Index Searches: 1
+                          Buffers: shared hit=3
+                    ->  Hash Join  (cost=179.50..696.14 rows=52 width=42) (actual time=0.405..0.973 rows=52.00 loops=1)
+                          Hash Cond: (br.patient_id = u.user_id)
+                          Buffers: shared hit=271
+                          ->  Seq Scan on bed_requests br  (cost=0.00..516.50 rows=52 width=33) (actual time=0.002..0.564 rows=52.00 loops=1)
+                                Filter: (hospital_id = 1)
+                                Rows Removed by Filter: 24948
+                                Buffers: shared hit=204
+                          ->  Hash  (cost=117.00..117.00 rows=5000 width=17) (actual time=0.397..0.397 rows=5000.00 loops=1)
+                                Buckets: 8192  Batches: 1  Memory Usage: 316kB
+                                Buffers: shared hit=67
+                                ->  Seq Scan on users u  (cost=0.00..117.00 rows=5000 width=17) (actual time=0.001..0.202 rows=5000.00 loops=1)
+                                      Buffers: shared hit=67
+              ->  Hash  (cost=34.60..34.60 rows=1960 width=11) (actual time=0.158..0.158 rows=1960.00 loops=1)
+                    Buckets: 2048  Batches: 1  Memory Usage: 101kB
+                    Buffers: shared hit=15
+                    ->  Seq Scan on resource_availability r  (cost=0.00..34.60 rows=1960 width=11) (actual time=0.003..0.070 rows=1960.00 loops=1)
+                          Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=313
+Planning Time: 0.518 ms
+Execution Time: 1.180 ms
+
+=== R15 run 2 ===
+Limit  (cost=765.57..765.62 rows=20 width=63) (actual time=1.183..1.185 rows=20.00 loops=1)
+  Buffers: shared hit=292
+  ->  Sort  (cost=765.57..765.70 rows=52 width=63) (actual time=1.183..1.184 rows=20.00 loops=1)
+        Sort Key: br.request_date DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=292
+        ->  Hash Join  (cost=238.87..764.18 rows=52 width=63) (actual time=0.600..1.171 rows=52.00 loops=1)
+              Hash Cond: (br.resource_id = r.resource_id)
+              Buffers: shared hit=289
+              ->  Nested Loop  (cost=179.77..704.95 rows=52 width=60) (actual time=0.429..0.995 rows=52.00 loops=1)
+                    Buffers: shared hit=274
+                    ->  Index Scan using hospitals_pkey on hospitals h  (cost=0.27..8.29 rows=1 width=26) (actual time=0.003..0.003 rows=1.00 loops=1)
+                          Index Cond: (hospital_id = 1)
+                          Index Searches: 1
+                          Buffers: shared hit=3
+                    ->  Hash Join  (cost=179.50..696.14 rows=52 width=42) (actual time=0.425..0.989 rows=52.00 loops=1)
+                          Hash Cond: (br.patient_id = u.user_id)
+                          Buffers: shared hit=271
+                          ->  Seq Scan on bed_requests br  (cost=0.00..516.50 rows=52 width=33) (actual time=0.002..0.560 rows=52.00 loops=1)
+                                Filter: (hospital_id = 1)
+                                Rows Removed by Filter: 24948
+                                Buffers: shared hit=204
+                          ->  Hash  (cost=117.00..117.00 rows=5000 width=17) (actual time=0.417..0.417 rows=5000.00 loops=1)
+                                Buckets: 8192  Batches: 1  Memory Usage: 316kB
+                                Buffers: shared hit=67
+                                ->  Seq Scan on users u  (cost=0.00..117.00 rows=5000 width=17) (actual time=0.001..0.201 rows=5000.00 loops=1)
+                                      Buffers: shared hit=67
+              ->  Hash  (cost=34.60..34.60 rows=1960 width=11) (actual time=0.170..0.170 rows=1960.00 loops=1)
+                    Buckets: 2048  Batches: 1  Memory Usage: 101kB
+                    Buffers: shared hit=15
+                    ->  Seq Scan on resource_availability r  (cost=0.00..34.60 rows=1960 width=11) (actual time=0.003..0.070 rows=1960.00 loops=1)
+                          Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=313
+Planning Time: 0.476 ms
+Execution Time: 1.206 ms
+
+=== R15 run 3 ===
+Limit  (cost=765.57..765.62 rows=20 width=63) (actual time=1.242..1.244 rows=20.00 loops=1)
+  Buffers: shared hit=292
+  ->  Sort  (cost=765.57..765.70 rows=52 width=63) (actual time=1.242..1.243 rows=20.00 loops=1)
+        Sort Key: br.request_date DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=292
+        ->  Hash Join  (cost=238.87..764.18 rows=52 width=63) (actual time=0.602..1.229 rows=52.00 loops=1)
+              Hash Cond: (br.resource_id = r.resource_id)
+              Buffers: shared hit=289
+              ->  Nested Loop  (cost=179.77..704.95 rows=52 width=60) (actual time=0.435..1.056 rows=52.00 loops=1)
+                    Buffers: shared hit=274
+                    ->  Index Scan using hospitals_pkey on hospitals h  (cost=0.27..8.29 rows=1 width=26) (actual time=0.004..0.004 rows=1.00 loops=1)
+                          Index Cond: (hospital_id = 1)
+                          Index Searches: 1
+                          Buffers: shared hit=3
+                    ->  Hash Join  (cost=179.50..696.14 rows=52 width=42) (actual time=0.430..1.049 rows=52.00 loops=1)
+                          Hash Cond: (br.patient_id = u.user_id)
+                          Buffers: shared hit=271
+                          ->  Seq Scan on bed_requests br  (cost=0.00..516.50 rows=52 width=33) (actual time=0.002..0.615 rows=52.00 loops=1)
+                                Filter: (hospital_id = 1)
+                                Rows Removed by Filter: 24948
+                                Buffers: shared hit=204
+                          ->  Hash  (cost=117.00..117.00 rows=5000 width=17) (actual time=0.419..0.419 rows=5000.00 loops=1)
+                                Buckets: 8192  Batches: 1  Memory Usage: 316kB
+                                Buffers: shared hit=67
+                                ->  Seq Scan on users u  (cost=0.00..117.00 rows=5000 width=17) (actual time=0.001..0.215 rows=5000.00 loops=1)
+                                      Buffers: shared hit=67
+              ->  Hash  (cost=34.60..34.60 rows=1960 width=11) (actual time=0.165..0.166 rows=1960.00 loops=1)
+                    Buckets: 2048  Batches: 1  Memory Usage: 101kB
+                    Buffers: shared hit=15
+                    ->  Seq Scan on resource_availability r  (cost=0.00..34.60 rows=1960 width=11) (actual time=0.003..0.074 rows=1960.00 loops=1)
+                          Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=313
+Planning Time: 0.554 ms
+Execution Time: 1.273 ms

@@ -1,0 +1,29 @@
+=== R2 run 1 ===
+Index Scan using users_pkey on users  (cost=0.28..8.30 rows=1 width=56) (actual time=0.005..0.005 rows=1.00 loops=1)
+  Index Cond: (user_id = 1)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=91
+Planning Time: 0.214 ms
+Execution Time: 0.026 ms
+
+=== R2 run 2 ===
+Index Scan using users_pkey on users  (cost=0.28..8.30 rows=1 width=56) (actual time=0.005..0.005 rows=1.00 loops=1)
+  Index Cond: (user_id = 1)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=91
+Planning Time: 0.217 ms
+Execution Time: 0.023 ms
+
+=== R2 run 3 ===
+Index Scan using users_pkey on users  (cost=0.28..8.30 rows=1 width=56) (actual time=0.005..0.005 rows=1.00 loops=1)
+  Index Cond: (user_id = 1)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=91
+Planning Time: 0.224 ms
+Execution Time: 0.027 ms

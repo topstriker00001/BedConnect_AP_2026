@@ -1,0 +1,89 @@
+=== R16 run 1 ===
+Result  (cost=1191.41..1191.42 rows=1 width=32) (actual time=2.247..2.247 rows=1.00 loops=1)
+  Buffers: shared hit=482
+  InitPlan 1
+    ->  Aggregate  (cost=129.50..129.51 rows=1 width=8) (actual time=0.222..0.222 rows=1.00 loops=1)
+          Buffers: shared hit=67
+          ->  Seq Scan on users  (cost=0.00..117.00 rows=5000 width=0) (actual time=0.002..0.130 rows=5000.00 loops=1)
+                Buffers: shared hit=67
+  InitPlan 2
+    ->  Aggregate  (cost=13.25..13.26 rows=1 width=8) (actual time=0.024..0.024 rows=1.00 loops=1)
+          Buffers: shared hit=7
+          ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=0) (actual time=0.001..0.014 rows=500.00 loops=1)
+                Buffers: shared hit=7
+  InitPlan 3
+    ->  Aggregate  (cost=516.50..516.51 rows=1 width=8) (actual time=1.023..1.024 rows=1.00 loops=1)
+          Buffers: shared hit=204
+          ->  Seq Scan on bed_requests  (cost=0.00..454.00 rows=25000 width=0) (actual time=0.001..0.560 rows=25000.00 loops=1)
+                Buffers: shared hit=204
+  InitPlan 4
+    ->  Aggregate  (cost=532.12..532.13 rows=1 width=8) (actual time=0.976..0.977 rows=1.00 loops=1)
+          Buffers: shared hit=204
+          ->  Seq Scan on bed_requests bed_requests_1  (cost=0.00..516.50 rows=6250 width=0) (actual time=0.002..0.854 rows=6250.00 loops=1)
+                Filter: ((status)::text = 'PENDING'::text)
+                Rows Removed by Filter: 18750
+                Buffers: shared hit=204
+Planning:
+  Buffers: shared hit=135
+Planning Time: 0.282 ms
+Execution Time: 2.279 ms
+
+=== R16 run 2 ===
+Result  (cost=1191.41..1191.42 rows=1 width=32) (actual time=2.327..2.327 rows=1.00 loops=1)
+  Buffers: shared hit=482
+  InitPlan 1
+    ->  Aggregate  (cost=129.50..129.51 rows=1 width=8) (actual time=0.241..0.241 rows=1.00 loops=1)
+          Buffers: shared hit=67
+          ->  Seq Scan on users  (cost=0.00..117.00 rows=5000 width=0) (actual time=0.002..0.140 rows=5000.00 loops=1)
+                Buffers: shared hit=67
+  InitPlan 2
+    ->  Aggregate  (cost=13.25..13.26 rows=1 width=8) (actual time=0.023..0.023 rows=1.00 loops=1)
+          Buffers: shared hit=7
+          ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=0) (actual time=0.001..0.013 rows=500.00 loops=1)
+                Buffers: shared hit=7
+  InitPlan 3
+    ->  Aggregate  (cost=516.50..516.51 rows=1 width=8) (actual time=1.064..1.064 rows=1.00 loops=1)
+          Buffers: shared hit=204
+          ->  Seq Scan on bed_requests  (cost=0.00..454.00 rows=25000 width=0) (actual time=0.001..0.581 rows=25000.00 loops=1)
+                Buffers: shared hit=204
+  InitPlan 4
+    ->  Aggregate  (cost=532.12..532.13 rows=1 width=8) (actual time=0.997..0.997 rows=1.00 loops=1)
+          Buffers: shared hit=204
+          ->  Seq Scan on bed_requests bed_requests_1  (cost=0.00..516.50 rows=6250 width=0) (actual time=0.001..0.871 rows=6250.00 loops=1)
+                Filter: ((status)::text = 'PENDING'::text)
+                Rows Removed by Filter: 18750
+                Buffers: shared hit=204
+Planning:
+  Buffers: shared hit=135
+Planning Time: 0.300 ms
+Execution Time: 2.361 ms
+
+=== R16 run 3 ===
+Result  (cost=1191.41..1191.42 rows=1 width=32) (actual time=2.332..2.332 rows=1.00 loops=1)
+  Buffers: shared hit=482
+  InitPlan 1
+    ->  Aggregate  (cost=129.50..129.51 rows=1 width=8) (actual time=0.241..0.241 rows=1.00 loops=1)
+          Buffers: shared hit=67
+          ->  Seq Scan on users  (cost=0.00..117.00 rows=5000 width=0) (actual time=0.002..0.141 rows=5000.00 loops=1)
+                Buffers: shared hit=67
+  InitPlan 2
+    ->  Aggregate  (cost=13.25..13.26 rows=1 width=8) (actual time=0.022..0.022 rows=1.00 loops=1)
+          Buffers: shared hit=7
+          ->  Seq Scan on hospitals  (cost=0.00..12.00 rows=500 width=0) (actual time=0.002..0.013 rows=500.00 loops=1)
+                Buffers: shared hit=7
+  InitPlan 3
+    ->  Aggregate  (cost=516.50..516.51 rows=1 width=8) (actual time=1.092..1.092 rows=1.00 loops=1)
+          Buffers: shared hit=204
+          ->  Seq Scan on bed_requests  (cost=0.00..454.00 rows=25000 width=0) (actual time=0.001..0.588 rows=25000.00 loops=1)
+                Buffers: shared hit=204
+  InitPlan 4
+    ->  Aggregate  (cost=532.12..532.13 rows=1 width=8) (actual time=0.974..0.974 rows=1.00 loops=1)
+          Buffers: shared hit=204
+          ->  Seq Scan on bed_requests bed_requests_1  (cost=0.00..516.50 rows=6250 width=0) (actual time=0.001..0.846 rows=6250.00 loops=1)
+                Filter: ((status)::text = 'PENDING'::text)
+                Rows Removed by Filter: 18750
+                Buffers: shared hit=204
+Planning:
+  Buffers: shared hit=135
+Planning Time: 0.310 ms
+Execution Time: 2.364 ms

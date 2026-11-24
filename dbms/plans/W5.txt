@@ -1,0 +1,38 @@
+=== W5 run 1 ===
+Insert on bed_requests  (cost=0.00..0.02 rows=1 width=82) (actual time=0.150..0.150 rows=1.00 loops=1)
+  Buffers: shared hit=59
+  ->  Result  (cost=0.00..0.02 rows=1 width=82) (actual time=0.020..0.020 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=22
+Planning Time: 0.053 ms
+Trigger for constraint bed_requests_patient_id_fkey: time=0.266 calls=1
+Trigger for constraint bed_requests_hospital_id_fkey: time=0.098 calls=1
+Trigger for constraint bed_requests_resource_id_fkey: time=0.096 calls=1
+Execution Time: 0.622 ms
+
+=== W5 run 2 ===
+Insert on bed_requests  (cost=0.00..0.02 rows=1 width=82) (actual time=0.105..0.105 rows=1.00 loops=1)
+  Buffers: shared hit=58
+  ->  Result  (cost=0.00..0.02 rows=1 width=82) (actual time=0.021..0.021 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=22
+Planning Time: 0.052 ms
+Trigger for constraint bed_requests_patient_id_fkey: time=0.232 calls=1
+Trigger for constraint bed_requests_hospital_id_fkey: time=0.088 calls=1
+Trigger for constraint bed_requests_resource_id_fkey: time=0.090 calls=1
+Execution Time: 0.524 ms
+
+=== W5 run 3 ===
+Insert on bed_requests  (cost=0.00..0.02 rows=1 width=82) (actual time=0.109..0.110 rows=1.00 loops=1)
+  Buffers: shared hit=58
+  ->  Result  (cost=0.00..0.02 rows=1 width=82) (actual time=0.020..0.021 rows=1.00 loops=1)
+        Buffers: shared hit=15
+Planning:
+  Buffers: shared hit=22
+Planning Time: 0.056 ms
+Trigger for constraint bed_requests_patient_id_fkey: time=0.240 calls=1
+Trigger for constraint bed_requests_hospital_id_fkey: time=0.090 calls=1
+Trigger for constraint bed_requests_resource_id_fkey: time=0.092 calls=1
+Execution Time: 0.543 ms

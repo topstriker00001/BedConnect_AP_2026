@@ -1,0 +1,35 @@
+=== W4 run 1 ===
+Update on resource_availability  (cost=0.28..8.30 rows=1 width=22) (actual time=0.120..0.121 rows=1.00 loops=1)
+  Buffers: shared hit=31
+  ->  Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability  (cost=0.28..8.30 rows=1 width=22) (actual time=0.012..0.012 rows=1.00 loops=1)
+        Index Cond: ((hospital_id = 1) AND ((resource_type)::text = 'GENERAL'::text))
+        Index Searches: 1
+        Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=92
+Planning Time: 0.192 ms
+Execution Time: 0.166 ms
+
+=== W4 run 2 ===
+Update on resource_availability  (cost=0.28..8.30 rows=1 width=22) (actual time=0.094..0.096 rows=1.00 loops=1)
+  Buffers: shared hit=34
+  ->  Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability  (cost=0.28..8.30 rows=1 width=22) (actual time=0.016..0.017 rows=1.00 loops=1)
+        Index Cond: ((hospital_id = 1) AND ((resource_type)::text = 'GENERAL'::text))
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=92
+Planning Time: 0.182 ms
+Execution Time: 0.134 ms
+
+=== W4 run 3 ===
+Update on resource_availability  (cost=0.28..8.30 rows=1 width=22) (actual time=0.139..0.141 rows=1.00 loops=1)
+  Buffers: shared hit=43 dirtied=1 written=1
+  ->  Index Scan using resource_availability_hospital_id_resource_type_key on resource_availability  (cost=0.28..8.30 rows=1 width=22) (actual time=0.014..0.016 rows=1.00 loops=1)
+        Index Cond: ((hospital_id = 1) AND ((resource_type)::text = 'GENERAL'::text))
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=92
+Planning Time: 0.189 ms
+Execution Time: 0.180 ms

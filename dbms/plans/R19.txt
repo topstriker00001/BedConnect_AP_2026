@@ -1,0 +1,71 @@
+=== R19 run 1 ===
+Sort  (cost=690.85..692.10 rows=500 width=41) (actual time=4.124..4.134 rows=500.00 loops=1)
+  Sort Key: (count(br.request_id)) DESC
+  Sort Method: quicksort  Memory: 55kB
+  Buffers: shared hit=214
+  ->  HashAggregate  (cost=663.43..668.43 rows=500 width=41) (actual time=4.066..4.089 rows=500.00 loops=1)
+        Group Key: h.hospital_id
+        Batches: 1  Memory Usage: 105kB
+        Buffers: shared hit=211
+        ->  Hash Right Join  (cost=18.25..538.43 rows=25000 width=37) (actual time=0.062..2.630 rows=25010.00 loops=1)
+              Hash Cond: (br.hospital_id = h.hospital_id)
+              Buffers: shared hit=211
+              ->  Seq Scan on bed_requests br  (cost=0.00..454.00 rows=25000 width=8) (actual time=0.001..0.637 rows=25000.00 loops=1)
+                    Buffers: shared hit=204
+              ->  Hash  (cost=12.00..12.00 rows=500 width=33) (actual time=0.056..0.056 rows=500.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 41kB
+                    Buffers: shared hit=7
+                    ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=33) (actual time=0.004..0.027 rows=500.00 loops=1)
+                          Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=137
+Planning Time: 0.286 ms
+Execution Time: 4.180 ms
+
+=== R19 run 2 ===
+Sort  (cost=690.85..692.10 rows=500 width=41) (actual time=3.970..3.980 rows=500.00 loops=1)
+  Sort Key: (count(br.request_id)) DESC
+  Sort Method: quicksort  Memory: 55kB
+  Buffers: shared hit=214
+  ->  HashAggregate  (cost=663.43..668.43 rows=500 width=41) (actual time=3.908..3.934 rows=500.00 loops=1)
+        Group Key: h.hospital_id
+        Batches: 1  Memory Usage: 105kB
+        Buffers: shared hit=211
+        ->  Hash Right Join  (cost=18.25..538.43 rows=25000 width=37) (actual time=0.073..2.509 rows=25010.00 loops=1)
+              Hash Cond: (br.hospital_id = h.hospital_id)
+              Buffers: shared hit=211
+              ->  Seq Scan on bed_requests br  (cost=0.00..454.00 rows=25000 width=8) (actual time=0.002..0.611 rows=25000.00 loops=1)
+                    Buffers: shared hit=204
+              ->  Hash  (cost=12.00..12.00 rows=500 width=33) (actual time=0.067..0.067 rows=500.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 41kB
+                    Buffers: shared hit=7
+                    ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=33) (actual time=0.004..0.036 rows=500.00 loops=1)
+                          Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=137
+Planning Time: 0.302 ms
+Execution Time: 4.026 ms
+
+=== R19 run 3 ===
+Sort  (cost=690.85..692.10 rows=500 width=41) (actual time=3.892..3.902 rows=500.00 loops=1)
+  Sort Key: (count(br.request_id)) DESC
+  Sort Method: quicksort  Memory: 55kB
+  Buffers: shared hit=214
+  ->  HashAggregate  (cost=663.43..668.43 rows=500 width=41) (actual time=3.830..3.855 rows=500.00 loops=1)
+        Group Key: h.hospital_id
+        Batches: 1  Memory Usage: 105kB
+        Buffers: shared hit=211
+        ->  Hash Right Join  (cost=18.25..538.43 rows=25000 width=37) (actual time=0.062..2.438 rows=25010.00 loops=1)
+              Hash Cond: (br.hospital_id = h.hospital_id)
+              Buffers: shared hit=211
+              ->  Seq Scan on bed_requests br  (cost=0.00..454.00 rows=25000 width=8) (actual time=0.001..0.604 rows=25000.00 loops=1)
+                    Buffers: shared hit=204
+              ->  Hash  (cost=12.00..12.00 rows=500 width=33) (actual time=0.056..0.056 rows=500.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 41kB
+                    Buffers: shared hit=7
+                    ->  Seq Scan on hospitals h  (cost=0.00..12.00 rows=500 width=33) (actual time=0.004..0.028 rows=500.00 loops=1)
+                          Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=137
+Planning Time: 0.282 ms
+Execution Time: 3.946 ms
